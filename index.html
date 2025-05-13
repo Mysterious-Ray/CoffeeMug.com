@@ -2,108 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Startup Queens 👑</title>
+  <title>☕ Startup Brew Café</title>
   <style>
     body {
       margin: 0;
       font-family: monospace;
-      background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210416/pngtree-business-tech-startup-blue-contemporary-image_627598.jpg');
+      background: url('https://png.pngtree.com/thumb_back/fh260/background/20210416/pngtree-business-tech-startup-blue-contemporary-image_627598.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      color: #f5f5f5;
     }
 
     .container {
-      max-width: 900px;
-      background-color: rgba(0, 0, 0, 0.7);
+      max-width: 1000px;
+      background-color: rgba(20, 20, 20, 0.88);
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 0 20px #000;
     }
 
+    h1, h2 {
+      text-align: center;
+      color: #FFDD99;
+      text-shadow: 1px 1px 5px #000;
+    }
+
     .box {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid #FFD700;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid #8B5E3C;
       padding: 20px;
       border-radius: 15px;
       margin-bottom: 25px;
     }
 
-    h1, h2 {
-      text-align: center;
-      color: #FFD700;
-      text-shadow: 2px 2px 5px black;
+    .clickable {
+      cursor: pointer;
+      border: 2px dashed #A7FFEB;
+      background-color: rgba(0, 255, 255, 0.08);
+      transition: 0.3s;
     }
 
-    p {
-      line-height: 1.8;
-      font-size: 16px;
+    .clickable:hover {
+      background-color: rgba(0, 255, 255, 0.2);
     }
 
-    .un-section {
-      border: 2px dashed #00BFFF;
-      background-color: rgba(0, 0, 50, 0.6);
-      padding: 20px;
+    .budget-options {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .budget-box {
+      border: 2px solid #FFD700;
       border-radius: 15px;
+      padding: 15px;
+      margin: 10px 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .un-section h2 {
-      color: #00FFFF;
+    .budget-box:hover {
+      background-color: #1f1f1f;
     }
 
-    .un-section ul {
-      list-style: square;
+    .plan {
+      margin-top: 20px;
+      background-color: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    p, ul {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    ul {
       padding-left: 20px;
-    }
-
-    .un-section li {
-      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>👩‍💼 Startup Queens: Real Women, Real Hustle</h1>
+    <h1>☕ Startup Brew Café</h1>
+    <h2>Where Coffee Meets Innovation 💡</h2>
 
     <div class="box">
-      <h2>🔥 Story 1: Vandana Luthra – Founder of VLCC</h2>
-      <p>
-        Vandana started VLCC in 1989 when wellness was barely a thing in India. People doubted her — a woman in business? In beauty? With just one center, she focused on health, fitness, and self-confidence. Slowly, her idea became a chain across India and even internationally. VLCC now offers wellness, skin care, and salon services across 300+ locations. Vandana faced tough competition and even tougher societal expectations — but her hustle, vision, and heart made her an icon. 💪🌟
-      </p>
+      <h2>👩‍💼 Vandana Luthra – VLCC</h2>
+      <p>In 1989, Vandana launched VLCC with a dream of holistic wellness. With zero external funding, she turned beauty into a billion-rupee biz. ✨</p>
     </div>
 
     <div class="box">
-      <h2>🌱 Story 2: Richa Kar – Founder of Zivame</h2>
-      <p>
-        Richa Kar broke all the “rules” when she launched Zivame — India’s first online lingerie store. People were awkward, investors were skeptical, and her parents were shocked. But she believed women deserved comfort, privacy, and confidence while shopping for essentials. She fought the stigma, educated users, and turned a bold idea into a bold brand. Today, Zivame is a household name and Richa is known for changing the way India shops. Her story is all about fearless focus and breaking taboos. 💃🩷
-      </p>
+      <h2>🧴 Ghazal Alagh – Mamaearth</h2>
+      <p>Mom-turned-entrepreneur. She created chemical-free skincare, now trusted by millions. From kitchens to boardrooms—she proved clean can win. 🌿</p>
     </div>
 
     <div class="box">
-      <h2>👶 Story 3: Ghazal Alagh – Mamaearth Magic</h2>
-      <p>
-        When Ghazal became a mom, she wanted only safe and chemical-free products for her baby. But nothing fit the bill. So what did she do? She built her own brand — Mamaearth! It started in her kitchen with simple ideas, but today it’s one of the fastest-growing personal care companies in India. Ghazal faced rejections, financial stress, and product challenges. But she stayed consistent, creative, and customer-focused. From Shark Tank fame to market queen — she proved that real love can create real businesses. 🧼👶🌿
-      </p>
+      <h2>🛠️ Sridhar Vembu – Zoho</h2>
+      <p>He built Zoho from a village in Tamil Nadu. Focused on simplicity, privacy, and Indian talent. His startup powers startups. 💻</p>
     </div>
 
-    <div class="un-section">
-      <h2>🌍 United Nations & Women in Business</h2>
-      <p>The UN supports gender equality and women-led entrepreneurship through the <strong>Sustainable Development Goals (SDGs)</strong>, especially:</p>
+    <div class="box">
+      <h2>📱 Peyush Bansal – Lenskart</h2>
+      <p>From Microsoft to eye-wear mogul, Peyush changed how India sees. His vision? Affordable eyecare for all—backed with bold tech moves. 👓</p>
+    </div>
+
+    <div class="box">
+      <h2>🌍 United Nations x Entrepreneurs</h2>
+      <p>The UN supports young entrepreneurs through:</p>
       <ul>
         <li><strong>Goal 5:</strong> Gender Equality 👩‍⚖️</li>
-        <li><strong>Goal 8:</strong> Decent Work & Economic Growth 📈</li>
-        <li><strong>Goal 9:</strong> Industry, Innovation & Infrastructure 🏗️</li>
-        <li><strong>Goal 10:</strong> Reduced Inequality 🌐</li>
+        <li><strong>Goal 8:</strong> Decent Work & Economic Growth 💼</li>
+        <li><strong>Goal 9:</strong> Industry, Innovation & Infrastructure 🧠</li>
+        <li><strong>Goal 12:</strong> Responsible Consumption & Production ♻️</li>
       </ul>
-      <p>By empowering women to lead startups, we are building a stronger, fairer, and more innovative world — just like the UN dreams of! 💖🌐</p>
     </div>
 
-    <h2>💡 Remember Mai G: Dream. Plan. Slay. Repeat. 💼✨</h2>
+    <div class="box clickable" onclick="showBudgets()">
+      <h2>📈 Start Your Own Venture</h2>
+      <p>Tap to explore business plans based on your budget – let your ideas brew like a perfect cup of espresso! ☕🚀</p>
+    </div>
+
+    <div class="budget-options" id="budgetOptions">
+      <h2>💸 Choose Your Investment</h2>
+      <div class="budget-box" onclick="showPlan(1)">AED 1,000</div>
+      <div class="budget-box" onclick="showPlan(2)">AED 10,000</div>
+      <div class="budget-box" onclick="showPlan(3)">AED 20,000</div>
+      <div class="budget-box" onclick="showPlan(4)">AED 30,000</div>
+      <div class="budget-box" onclick="showPlan(5)">AED 50,000</div>
+
+      <div class="plan" id="planBox"></div>
+    </div>
+
+    <h2>🌱 Brew Bold, Build Smart, Stay Kind</h2>
   </div>
+
+  <script>
+    function showBudgets() {
+      document.getElementById("budgetOptions").style.display = "block";
+    }
+
+    function showPlan(id) {
+      const plans = {
+        1: `<h3>🛍️ AED 1,000 Plan – Eco Handmade Biz</h3>
+            <p>Make & sell eco-friendly bookmarks, candles or coffee scrubs. Use Insta, WhatsApp, & booths. Perfect for young changemakers!</p>`,
+        2: `<h3>☕ AED 10,000 Plan – Mini Coffee Cart</h3>
+            <p>Buy a secondhand cart, serve cold brew, brownies, and energy bars near offices. Sustainable cups, zero waste, all vibes!</p>`,
+        3: `<h3>📦 AED 20,000 Plan – Subscription Box</h3>
+            <p>Curate “Wellness & Productivity” kits: coffee, candles, stationery. Partner with eco brands. Monthly joy = recurring revenue.</p>`,
+        4: `<h3>📱 AED 30,000 Plan – Freelancer Café App</h3>
+            <p>Create a mobile app connecting freelancers to café spaces, complete with coffee offers & WiFi maps. Tech x café = 🔥 idea!</p>`,
+        5: `<h3>🏪 AED 50,000 Plan – Boutique Coffee Lounge</h3>
+            <p>Launch a startup-themed café. Pitch decks, coworking tables, barista classes. Community + caffeine = legendary startup culture.</p>`
+      };
+      document.getElementById("planBox").innerHTML = plans[id];
+    }
+  </script>
 </body>
 </html>
