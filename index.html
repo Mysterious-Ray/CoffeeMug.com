@@ -1,115 +1,171 @@
-<div>
-  <input type="number" id="customAmount" placeholder="Enter your budget in AED" />
-  <button onclick="generateIdeas()">Get Ideas</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BrewUp 🌱☕</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #DCC7AA, #B08B64);
+    color: #3E2F1C;
+    text-align: center;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+  }
+  .blob {
+    background: #F7EBDD;
+    border-radius: 40px;
+    padding: 25px 30px;
+    margin: 20px auto;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  h1, h2 {
+    font-weight: 700;
+  }
+  select, input[type=number], button {
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    margin: 5px 10px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .entrepreneur-box, .tip-box {
+    background: #FFF9F1;
+    border: 2px solid #A97B50;
+    border-radius: 30px;
+    padding: 20px 25px;
+    margin: 15px auto;
+    max-width: 650px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: left;
+    position: relative;
+  }
+  .learn-more {
+    background-color: #A97B50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 15px;
+  }
+  ul {
+    text-align: left;
+    max-width: 700px;
+    margin: 10px auto;
+    padding-left: 20px;
+  }
+  .big-box {
+    border: 2px solid #C7A77F;
+    border-radius: 40px;
+    padding: 35px 40px;
+    margin: 40px auto;
+    background-color: #FAF0E6;
+    max-width: 1000px;
+  }
+  .hidden-text {
+    display: none;
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 0.9em;
+    line-height: 1.4em;
+  }
+
+  #ideaResults {
+    max-width: 700px;
+    margin: 20px auto;
+    background: #FFF9F1;
+    border: 2px solid #A97B50;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .dark-mode {
+    background: linear-gradient(to bottom right, #2E2B28, #1A1A1A);
+    color: #F5EBDD;
+  }
+  .dark-mode .blob {
+    background: #3A332C;
+  }
+  .dark-mode .entrepreneur-box, .dark-mode .tip-box, .dark-mode #ideaResults, .dark-mode .big-box {
+    background: #4D4037;
+    border-color: #A97B50;
+    color: #FFF9F1;
+  }
+  .dark-mode .learn-more {
+    background-color: #C09C74;
+    color: #1A1A1A;
+  }
+</style>
+</head>
+<body>
+
+<div class="blob">
+  <h1 id="mainTitle">🌍 BrewUp - Empower Your Dream Startup</h1>
+  <p id="langText">Choose your language:</p>
+  <select onchange="changeLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="ar">العربية</option>
+  </select>
+  <button onclick="toggleMode()">🌙 Toggle Dark/Light</button>
 </div>
 
-<div id="ideaResults"></div>
+<!-- Keep your content as-is -->
+
+<!-- Example area only for text translation -->
+<div class="blob">
+  <h2 id="womenTitle">✨ Meet Women Entrepreneurs</h2>
+
+  <div class="entrepreneur-box">
+    <p><strong>Amna Al Qubaisi:</strong> <span id="amnaText">UAE’s first female F3 racer turned tech investor. She inspires youth, proving girls can lead in any field.</span></p>
+    <button class="learn-more" onclick="toggleText('amna')">Learn more</button>
+    <p id="amna" class="hidden-text">
+      Amna’s journey began on the racetrack but expanded into investing in AI and eco-startups...
+    </p>
+  </div>
+</div>
 
 <script>
-  const ideasData = {
-    low: [
-      {
-        short: "Start a homemade healthy snack business with nutritious energy balls and granola bars.",
-        long: "Use your kitchen to prepare small batches of healthy snacks like energy balls and granola bars using clean, natural ingredients. Package attractively and sell at local markets or online. Focus on building a loyal customer base with samples and social media marketing. This low-cost startup lets you test the market without big expenses."
-      },
-      {
-        short: "Create handmade eco-friendly candles with unique scents and designs.",
-        long: "Craft natural soy or beeswax candles scented with essential oils and designed with unique shapes or colors. Market them as sustainable home decor or gifts. Sell online or at local fairs. This creative business appeals to customers seeking environmentally friendly and artisanal products."
-      },
-      {
-        short: "Offer personalized digital art or graphic design services to small businesses.",
-        long: "Use your design skills to create logos, social media graphics, or digital art for local businesses and startups. Build a portfolio online and get clients through social media or freelance platforms. Low startup costs with high creative potential."
-      },
-      {
-        short: "Start a small plant nursery growing easy-care indoor plants.",
-        long: "Grow popular indoor plants like succulents and pothos from cuttings or seeds at home. Sell plants in pots with care instructions at markets or online. Indoor gardening is trending, and customers love greenery in their homes."
-      },
-      {
-        short: "Launch a pet-sitting or dog-walking service for busy neighbors.",
-        long: "Offer reliable pet-sitting and dog-walking services in your community. Build trust through word-of-mouth and social media. Low investment needed but high demand from pet owners needing help during busy days or vacations."
-      }
-    ],
-    medium: [
-      {
-        short: "Start a mobile coffee cart serving busy professionals with quality espresso.",
-        long: "Set up a mobile coffee cart near office areas or events. Invest in a quality coffee machine, beans, and eco-friendly cups. Engage customers with quick, friendly service and daily social media updates about your location. This taps into a consistent demand for fresh coffee with minimal overhead."
-      },
-      {
-        short: "Open a boutique offering handmade sustainable clothing and accessories.",
-        long: "Design and create eco-friendly clothing or accessories using organic or recycled materials. Partner with local artisans to produce limited collections. Market your brand online focusing on sustainability and creativity. This appeals to environmentally conscious consumers seeking unique fashion."
-      },
-      {
-        short: "Start a specialty dessert business making gourmet cupcakes and pastries.",
-        long: "Create gourmet cupcakes and pastries with unique flavors and beautiful designs. Sell at local cafes, markets, or online. Focus on quality ingredients and creative presentation. Develop a loyal customer base with tastings and social media promotions."
-      },
-      {
-        short: "Offer virtual fitness coaching and personalized workout plans.",
-        long: "Provide personalized workout coaching online via video calls and custom plans. Use social media and online ads to reach fitness enthusiasts. This scalable business requires minimal equipment and can grow with client referrals."
-      },
-      {
-        short: "Launch a small eco-friendly cleaning service using natural products.",
-        long: "Start a residential cleaning service that uses non-toxic, environmentally friendly cleaning supplies. Market to health-conscious families and offices. Train staff and build strong client relationships. This niche stands out from traditional cleaning businesses."
-      }
-    ],
-    high: [
-      {
-        short: "Open a cozy specialty tea and coffee shop with unique blends and events.",
-        long: "Invest in quality coffee and tea equipment, cozy seating, and unique drink recipes. Host workshops, tastings, and community events to create a welcoming space. Focus on exceptional customer experience and eco-friendly practices. This business appeals to customers seeking more than just a drink."
-      },
-      {
-        short: "Create a sustainable fashion brand focusing on recycled fabrics and local artisans.",
-        long: "Build a brand centered on eco-friendly fashion using recycled or organic materials. Collaborate with local tailors and artisans for production. Market your brand online with storytelling about sustainability and craftsmanship. Use your budget to launch a small collection and digital ads."
-      },
-      {
-        short: "Start a tech startup developing an app for sustainable lifestyle tracking.",
-        long: "Develop a mobile app that helps users track and reduce their environmental impact. Features include waste reduction tips, energy-saving challenges, and connecting users to local eco-friendly businesses. Use your budget for development, design, and marketing. This idea fits larger budgets with growth potential."
-      },
-      {
-        short: "Open a modern coworking space with sustainable design and amenities.",
-        long: "Create a coworking space that prioritizes sustainability through energy-efficient lighting, recycled materials, and green plants. Offer flexible plans for freelancers and startups. Host networking events to build a creative community. This business caters to remote workers and entrepreneurs."
-      },
-      {
-        short: "Launch a specialty gourmet food truck focusing on healthy, organic meals.",
-        long: "Start a food truck serving healthy, organic meals made from locally sourced ingredients. Create a rotating menu with seasonal options. Use social media to announce locations and specials. This mobile option combines food trends with convenience."
-      }
-    ]
-  };
-
-  function generateIdeas() {
-    const budget = Number(document.getElementById('customAmount').value);
-    const container = document.getElementById('ideaResults');
-    if (!budget || budget <= 0) {
-      container.innerHTML = '<p>Please enter a valid budget in AED.</p>';
-      return;
-    }
-
-    let selectedIdeas = [];
-
-    if (budget < 5000) selectedIdeas = ideasData.low;
-    else if (budget < 20000) selectedIdeas = ideasData.medium;
-    else selectedIdeas = ideasData.high;
-
-    let html = '<h3>Startup Ideas for AED ' + budget + ':</h3><ul>';
-    selectedIdeas.forEach((idea, index) => {
-      html += `<li>
-        ${idea.short} 
-        <button onclick="toggleLearnMore(${index})" id="btn${index}">Learn More</button>
-        <p id="desc${index}" style="display:none; margin-top:5px;">${idea.long}</p>
-      </li>`;
-    });
-    html += '</ul>';
-    container.innerHTML = html;
+  function toggleText(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
   }
 
-  function toggleLearnMore(index) {
-    const desc = document.getElementById('desc' + index);
-    const btn = document.getElementById('btn' + index);
-    if (desc.style.display === 'block') {
-      desc.style.display = 'none';
-      btn.textContent = 'Learn More';
-    } else {
-      desc.style.display = 'block';
-      btn.textContent = 'Show Less';
-    }
+  function changeLanguage(lang) {
+    const translations = {
+      en: {
+        mainTitle: "🌍 BrewUp - Empower Your Dream Startup",
+        langText: "Choose your language:",
+        womenTitle: "✨ Meet Women Entrepreneurs",
+        amnaText: "UAE’s first female F3 racer turned tech investor. She inspires youth, proving girls can lead in any field."
+      },
+      ar: {
+        mainTitle: "🌍 BrewUp - ادعم مشروع أحلامك",
+        langText: "اختر لغتك:",
+        womenTitle: "✨ تعرف على رائدات الأعمال",
+        amnaText: "أول سائقة فورمولا 3 إماراتية تحولت إلى مستثمرة تقنية. تلهم الشباب وتثبت أن الفتيات يمكنهن القيادة في أي مجال."
+      }
+    };
+
+    const t = translations[lang];
+    document.getElementById("mainTitle").innerText = t.mainTitle;
+    document.getElementById("langText").innerText = t.langText;
+    document.getElementById("womenTitle").innerText = t.womenTitle;
+    document.getElementById("amnaText").innerText = t.amnaText;
+  }
+
+  function toggleMode() {
+    document.body.classList.toggle("dark-mode");
   }
 </script>
+
+</body>
+</html>
